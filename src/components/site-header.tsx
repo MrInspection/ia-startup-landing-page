@@ -11,14 +11,14 @@ export default function SiteHeader() {
     const [isOpen, setIsOpen] = useState(false)
     return (
         <>
-            <header className={"py-4 border-b md:border-none sticky top-0 z-10"}>
+            <header className={"py-4 border-b max-md:backdrop-blur md:border-none sticky top-0 z-10"}>
                 <div className={"container"}>
-                    <div className={"flex items-center justify-between md:border md:p-2.5 md:rounded-xl max-w-2xl mx-auto backdrop-blur"}>
-                        <section>
+                    <div className={"flex items-center justify-between md:border md:p-2.5 md:rounded-xl max-w-2xl mx-auto md:backdrop-blur"}>
+                        <Link href={"/"}>
                             <div className={"border size-10 rounded-lg inline-flex items-center justify-center"}>
                                 <SiteLogo className={"size-8 h-auto"} />
                             </div>
-                        </section>
+                        </Link>
                         <section className={"max-md:hidden"}>
                             <nav className={"flex gap-8 items-center text-sm"}>
                                 <Link href={"#"} className={"text-white/70 hover:text-white transition"}>Features</Link>
@@ -38,7 +38,7 @@ export default function SiteHeader() {
                                         <div className={"border size-8 rounded-lg inline-flex items-center justify-center"}>
                                             <SiteLogo className={"size-6 h-auto"}/>
                                         </div>
-                                        <p className={"font-bold"}>Spectron Labs</p>
+                                        <p className={"font-bold"}>AI Startup Landing Page</p>
                                     </div>
                                     <div className={"mt-8 mb-4"}>
                                         <nav className={"grid gap-4 items-center text-lg"}>

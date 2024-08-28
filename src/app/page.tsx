@@ -5,6 +5,7 @@ import SiteFooter from "@/components/site-footer";
 import {CallToAction} from "@/components/call-to-action";
 import { Features } from "@/components/features";
 import { Testimonials } from "@/components/testimonials";
+import {GithubIndicator} from "@/components/github-indicator";
 
 export default function Home() {
     return (
@@ -15,6 +16,7 @@ export default function Home() {
             <Features />
             <Testimonials />
             <CallToAction />
+            <GithubIndicator />
             <SiteFooter />
         </>
     );
