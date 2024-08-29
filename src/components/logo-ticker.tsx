@@ -1,3 +1,5 @@
+"use client"
+
 import AcmeLogo from "@/assets/logo-acme.png";
 import ApexLogo from "@/assets/logo-apex.png";
 import QuantumLogo from "@/assets/logo-quantum.png";
@@ -5,6 +7,7 @@ import CelestialLogo from "@/assets/logo-celestial.png";
 import PulseLogo from "@/assets/logo-pulse.png";
 import EchoLogo from "@/assets/logo-echo.png";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export function LogoTicker() {
   return (
@@ -16,11 +19,19 @@ export function LogoTicker() {
                   <h2 className={""}>Trusted by top innovative teams</h2>
               </div>
               <div className={"flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"}>
-                  <div className={"flex flex-none gap-14"}>
-                      {[AcmeLogo, ApexLogo, QuantumLogo, CelestialLogo, PulseLogo, EchoLogo].map((logo, index) => (
+                  <motion.div
+                      initial={{translateX: '-50%'}}
+                      animate={{translateX: '0'}}
+                      transition={{
+                          repeat: Infinity,
+                          duration: 30,
+                          ease: "linear",
+                      }}
+                      className={"flex flex-none gap-14 pr-14 -translate-x-1/2"}>
+                      {[AcmeLogo, ApexLogo, QuantumLogo, CelestialLogo, PulseLogo, EchoLogo, AcmeLogo, ApexLogo, QuantumLogo, CelestialLogo, PulseLogo, EchoLogo].map((logo, index) => (
                           <Image src={logo} alt={`${logo}`} key={index} className={"h-6 w-auto"}/>
                       ))}
-                  </div>
+                  </motion.div>
               </div>
           </div>
         </div>
