@@ -12,8 +12,8 @@ export default function SiteHeader() {
     return (
         <>
             <header className={"py-4 border-b max-md:backdrop-blur md:border-none sticky top-0 z-10"}>
-                <div className={"container"}>
-                    <div className={"flex items-center justify-between md:border md:p-2.5 md:rounded-xl max-w-2xl mx-auto md:backdrop-blur"}>
+                <div className={"container max-md:px-4"}>
+                    <div className={"flex items-center justify-between md:border md:p-2.5 md:rounded-xl max-w-2xl mx-auto md:backdrop-blur "}>
                         <Link href={"/"}>
                             <div className={"border size-10 rounded-lg inline-flex items-center justify-center"}>
                                 <SiteLogo className={"size-8 h-auto"} />
