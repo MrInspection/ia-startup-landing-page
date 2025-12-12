@@ -1,28 +1,32 @@
-FROM node:20-alpine AS base
+FROM node:22-alpine AS base
 
 FROM base AS deps
 RUN apk add --no-cache libc6-compat curl bash
+RUN corepack enable pnpm
 
 WORKDIR /app
 
-COPY package.json ./
-
-RUN pnpm install
+# Install dependencies based on the preferred package manager
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
+RUN pnpm install --frozen-lockfile
 
 # Rebuild the source code only when needed
-FROM base as builder
+FROM base AS builder
 RUN apk add --no-cache libc6-compat curl bash
+RUN corepack enable pnpm
 
 WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN pnpm build
+RUN pnpm run build
 
 # Production Image
 FROM base AS runner
 WORKDIR /app
+
+RUN apk add --no-cache curl
 
 ENV NODE_ENV=production
 
